@@ -24,13 +24,13 @@ public class OperaController {
 	
 	@GetMapping("/opera")
 	public String showForm(Opera opera){
-		return "form";
+		return "operaForm";
 	}
 	@PostMapping("/opera")
 	public String checkOperaInfo(@Valid @ModelAttribute Opera opera,
 			BindingResult bindingResult, Model model){
 		if (bindingResult.hasErrors()){
-			return "form";
+			return "operaForm";
 		}
 		else{
 			model.addAttribute(opera);
