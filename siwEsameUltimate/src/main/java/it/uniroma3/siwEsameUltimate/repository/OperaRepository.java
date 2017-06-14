@@ -11,6 +11,6 @@ import it.uniroma3.siwEsameUltimate.model.Stanza;
 
 
 public interface OperaRepository extends CrudRepository<Opera,Long>{
-	List<Opera> findByTitolo(String titoloOpera);
+
 	
 }

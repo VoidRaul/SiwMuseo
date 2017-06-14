@@ -9,6 +9,6 @@ import it.uniroma3.siwEsameUltimate.model.Autore;
 
 
 public interface AutoreRepository extends CrudRepository<Autore,Long> {
-	List<Autore> findByNome(String nomeArtista);
+	
 
 }

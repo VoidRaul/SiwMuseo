@@ -8,5 +8,4 @@ import it.uniroma3.siwEsameUltimate.model.Galleria;
 
 
 public interface GalleriaRepository extends CrudRepository<Galleria,Long>{
-	List<Galleria> FindByNome(String nome);
 }
