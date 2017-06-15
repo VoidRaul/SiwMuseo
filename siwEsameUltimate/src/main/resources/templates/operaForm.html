@@ -8,12 +8,12 @@
         <form action="#" th:action="@{/opera}" th:object="${opera}" method="post">
             <div>
                 <div>
-                    <span th:text="#{label.titolo}">Titolo: </span>
+                    <span th:text="#{label.title}">Titolo: </span>
                     <span><input type="text" th:field="*{titolo}" /></span>
                     <span th:if="${#fields.hasErrors('titolo')}" th:text="#{label.mandatory}">Error</span>
                 </div>
                 <div>
-                    <span th:text="#{label.anno}">Anno: </span>
+                    <span th:text="#{label.year}">Anno: </span>
                     <span><input type="text" th:field="*{anno}" /></span>
                     <span th:if="${#fields.hasErrors('anno')}" th:text="#{label.number}">Error</span>
                 </div>
