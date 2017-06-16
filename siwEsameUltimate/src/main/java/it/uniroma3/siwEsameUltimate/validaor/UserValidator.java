@@ -2,6 +2,8 @@ package it.uniroma3.siwEsameUltimate.validaor;
 
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -25,6 +27,10 @@ public class UserValidator implements Validator{
 	public void validate(Object arg0, Errors arg1) {
 		// TODO Auto-generated method stub
 		Users user = (Users) arg0;
+		List<Users>users=(List<Users>) userService.findAll();
+		
+		if(users.isEmpty())
+			return;
 		if (userService.findByUsername(user.getUsername())!= null) {
 			arg1.rejectValue("login", "NonUniq.user");
 		}

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import it.uniroma3.siwEsameUltimate.model.Users;
+import it.uniroma3.siwEsameUltimate.service.AuthorityService;
 import it.uniroma3.siwEsameUltimate.service.RegisterService;
 import it.uniroma3.siwEsameUltimate.validaor.UserValidator;
 
@@ -22,6 +23,8 @@ import it.uniroma3.siwEsameUltimate.validaor.UserValidator;
 public class RegisterController {
 	@Autowired
 	private UserValidator userValidator;
+	@Autowired
+	private AuthorityService authorityService;
 	@InitBinder
 	protected void initBinder(final WebDataBinder binder) {
 	    binder.addValidators(userValidator);
@@ -40,6 +43,9 @@ public class RegisterController {
 			return "register";
 		}
 		else{
+			users.setEnabled((long) 1);
+			users.setAuthority(authorityService.findbyId((long) 2));
+			authorityService.findbyId((long)2).getUser().add(users);
 			model.addAttribute(users);
 			registerservice.add(users);
 			

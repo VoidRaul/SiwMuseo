@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -18,6 +19,9 @@ public class Users {
 	private String username;
 	@NotNull
 	private String password;
+	private Long enabled;
+	@ManyToOne
+	private Authority authority;
 	
 //	public Long getId() {
 //		return id;
@@ -25,8 +29,21 @@ public class Users {
 //	public void setId(Long id) {
 //		this.id = id;
 //	}
+	
 	public String getUsername() {
 		return username;
+	}
+	public Authority getAuthority() {
+		return authority;
+	}
+	public void setAuthority(Authority authority) {
+		this.authority = authority;
+	}
+	public Long getEnabled() {
+		return enabled;
+	}
+	public void setEnabled(Long enabled) {
+		this.enabled = enabled;
 	}
 	public void setUsername(String nome) {
 		this.username = nome;
