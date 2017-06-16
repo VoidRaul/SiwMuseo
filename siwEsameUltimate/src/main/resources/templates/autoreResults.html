@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Insert title here</title>
+</head>
+
+<body>
+
+	<h1>I dati salvati sono i seguenti:</h1>
+	
+	
+	<div>
+    	<p th:text="'Nome:' + ${autore.nome}" />
+    </div>
+	<div>
+    	<p th:text="'Cognome: ' + ${autore.cognome}" />	
+    </div>
+	
+	<div>
+    	<p th:text="'Nazionalità: ' + ${autore.nazionalita}" />
+    </div>
+	<div>
+    	<p th:text="'Data di nascita: ' + ${autore.dataNascita}" />
+    </div>
+	<div>
+    	<p th:text="'Data di morte: ' + ${autore.dataMorte}" />
+    </div>
+
+</body>
+</html>
+
+
+
