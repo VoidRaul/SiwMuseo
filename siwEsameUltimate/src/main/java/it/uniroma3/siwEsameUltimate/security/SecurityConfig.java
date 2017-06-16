@@ -23,14 +23,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter  {
 		auth.jdbcAuthentication().dataSource(dataSource)
 		
 		.passwordEncoder(new BCryptPasswordEncoder())
-		.usersByUsernameQuery("SELECT username, password,1 FROM users where username=?")
+		.usersByUsernameQuery("SELECT username,password,enabled FROM users where username=?")
 		.authoritiesByUsernameQuery("SELECT username,role FROM authority where username=?");
 	}
 	 @Override
 	    public void configure(WebSecurity web) throws Exception {
 	        web
 	            .ignoring()
-	                .antMatchers("/register.html");
+	                .antMatchers("/register.html")
+	        		.antMatchers("/register");
 	    }
 
  
