@@ -15,8 +15,11 @@
 	<div>
 		<a href="/autore" th:text="#{label.viewAutore}"> Visualizza autore </a>
 	</div>
+	<div>
+		<a href="/stanza" th:text="#{label.ViewStanza}">Visualizza stanze</a>
+	</div>
 	<p>
-		<a href="/logout" th:text="#{label.logOut}"><button>Log Out</button></a>
+		<a href="/logout" th:text="#{label.logOut}">Log Out</a>
 	</p>
 	 <div sec:authorize="hasAuthority('ADMIN')">
         <a href="/adminindex">MenuAdmin</a>

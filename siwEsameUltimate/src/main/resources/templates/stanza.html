@@ -5,9 +5,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+	<h1 th:text="#{label.MuseumRoom}">Stanze Del museo</h1>
 	<form action="#" th:action="@{/stanza}" method="post">
-		<button name="idStanza" th:each="item : ${stanze}" th:value="${item.id}"
-			th:text="${item.nomeStanza}" ></button>
+		<th:block th:each="item : ${stanze}">
+		<input type="radio" name="idStanza" th:value="${item.id}"
+			th:text="${item.nomeStanza}" />
+		</th:block>
+		<!--  th:each="item : ${stanze}" -->
+		<br/>
+		<button type="submit" th:text="#{label.select}"></button>
 
 	</form> 
 		<!-- <form action="#" th:action="@{/stanza}" th:object="${idStanza}" method="post">

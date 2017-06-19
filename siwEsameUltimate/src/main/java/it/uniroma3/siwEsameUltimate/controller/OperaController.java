@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import it.uniroma3.siwEsameUltimate.model.Autore;
 import it.uniroma3.siwEsameUltimate.model.Opera;
 import it.uniroma3.siwEsameUltimate.service.AutoreService;
+import it.uniroma3.siwEsameUltimate.service.GalleriaService;
 import it.uniroma3.siwEsameUltimate.service.OperaService;
 
 
@@ -22,20 +23,24 @@ import it.uniroma3.siwEsameUltimate.service.OperaService;
 
 @Controller
 public class OperaController {
-
+	@Autowired
+	private GalleriaService galServ;
 	@Autowired
 	private OperaService operaservice;
 	@Autowired
 	private AutoreService autoreservice;
 	private Iterable<Autore> autori = new ArrayList<>();
-	private Iterable<Opera> opere = new ArrayList<>();
 	
 	
 	
 	@GetMapping("/opera")
 	public String showAllOpera( Model model){
-		opere=operaservice.findAll();
-		model.addAttribute("opere",opere);
+		Iterable<Opera> opereEsposte = new ArrayList<>();
+		Iterable<Opera> opereNonEsposte = new ArrayList<>();		
+		opereEsposte=galServ.getOpereEsposte();
+		opereNonEsposte=galServ.getOpereNonEsposte();
+		model.addAttribute("opereEsposte",opereEsposte);
+		model.addAttribute("opereNonEsposte",opereNonEsposte);
 		return "showOpera";
 		
 	}

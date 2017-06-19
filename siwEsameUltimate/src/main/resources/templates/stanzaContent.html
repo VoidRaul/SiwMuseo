@@ -8,10 +8,23 @@
 </head>
 <h1 th:text="${stanza.nomeStanza}"></h1>
 <body>
-	<th:block th:each="item : ${opere}">
-		<td th:text="${item.titolo}">...</td>
-		<td colspan="6" th:text="${item.autore.nome}">...</td>
-	</th:block>
+	<h1 th:text="#{label.OpereEsposte}">Opere Esposte Nel Museo</h1>
+
+	<table>
+		<tr>
+			<th th:text="#{label.title}" />
+			<th th:text="#{label.nome} + #{label.autore}" />
+			<th th:text="#{label.cognome} + #{label.autore}" />
+			<th th:text="#{label.image}" />
+		</tr>
+		<tr th:each="item : ${opere}">
+			<td th:text="${item.titolo}">Item description here...</td>
+			<td th:text="${item.autore.nome}"></td>
+			<td th:text="${item.autore.cognome}"></td>
+			<td><img th:src="'/tmp/tomcat.771882198501843748.8080/tmpFiles/'+${item.titolo}"
+				th:alt="'Quadro ' + ${item.titolo}"></img></td>
+		</tr>
+	</table>
 	<div sec:authorize="hasAuthority('ADMIN')">
 		<form action="#" th:action="@{/admin/selezionaOpera}" method="post">
 			<input type="hidden" th:value="${idStanza}" name="idStanza"/>		

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+</head>
+<body>
+	<h1 th:text="#{label.OpereEsposte}">Opere Esposte Nel Museo</h1>
+
+	<table>
+		<tr>
+			<th th:text="#{label.title}" />
+			<th th:text="#{label.image}" />
+		</tr>
+		<tr th:each="item : ${opereEsposte}">
+			<td th:text="${item.titolo}">Item description here...</td>
+			<td><img th:src="'/tmp/tomcat.771882198501843748.8080/tmpFiles/'+${item.titolo}"
+				th:alt="'Quadro ' + ${item.titolo}"></img></td>
+		</tr>
+	</table>
+	<h1 th:text="#{label.OpereNonEsposte}">Coming Soon</h1>
+
+	<table>
+		<tr>
+			<th th:text="#{label.title}" />
+			<th th:text="#{label.image}" />
+		</tr>
+		<tr th:each="items : ${opereNonEsposte}">
+			<td th:text="${items.titolo}">Item description here...</td>
+			<td><img src="'/tmp/tomcat.771882198501843748.8080/tmpFiles/'+${items.titolo}+'.*'"
+				th:alt="'Quadro ' + ${items.titolo}"></img></td>
+		</tr>
+	</table>
+
+
+
+</body>
+</html>
