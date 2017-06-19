@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>ShowAutori</title>
+</head>
+<body>
+	<h1 th:text="#{label.viewAutori}"></h1>
+	<th:block th:each="item : ${autori}">
+	<ul>
+		<li th:text="#{label.nome} + ${item.nome}"></li>
+		<li th:text="#{label.cognome} + ${item.cognome}"></li>
+		<li th:text="#{label.description} + ${item.biography}"></li>
+	</ul>
+	</th:block>
+</body>
+</html>

@@ -1,5 +1,7 @@
 package it.uniroma3.siwEsameUltimate.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import it.uniroma3.siwEsameUltimate.model.Autore;
 import it.uniroma3.siwEsameUltimate.service.AutoreService;
+import it.uniroma3.siwEsameUltimate.service.GalleriaService;
 import it.uniroma3.siwEsameUltimate.validaor.AutoreValidator;
 
 @Controller
@@ -23,9 +26,17 @@ public class AutoreController {
 	private AutoreService autoreservice;
 	@Autowired
 	private AutoreValidator autorVal;
+	@Autowired
+	private GalleriaService galService;
 	@InitBinder
 	protected void initBinder(final WebDataBinder binder) {
 	    binder.addValidators(autorVal);
+	}
+	@GetMapping("/autore")
+	public String showAutore(Model model){
+		List<Autore> autori = (List<Autore>) galService.getAutori();
+		model.addAttribute("autori",autori);
+		return "showAutori";
 	}
 	
 	@GetMapping("/admin/autore")
