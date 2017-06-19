@@ -24,14 +24,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter  {
 
 		.passwordEncoder(new BCryptPasswordEncoder())
 		.usersByUsernameQuery("SELECT username,password,enabled FROM users where username=?")
-		.authoritiesByUsernameQuery("SELECT user_username,authority_id FROM authority_user where user_username=?");
+		.authoritiesByUsernameQuery("SELECT user_username,authority_authority FROM authority_user where user_username=?");
 	}
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 		web
 		.ignoring()
 		.antMatchers("/register.html")
-		.antMatchers("/register");
+		.antMatchers("/register")
+		.antMatchers("login")
+		.antMatchers("/login.html");
 	}
 
 
@@ -40,6 +42,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter  {
 		http.csrf().disable(); 
 		http
 		.authorizeRequests()
+		.antMatchers("/admin/**").hasAuthority("ADMIN")//riprendi da qui
+		.antMatchers("/admin**.html").hasAuthority("ADMIN")
 		.anyRequest().authenticated()
 		.and()
 		.formLogin()

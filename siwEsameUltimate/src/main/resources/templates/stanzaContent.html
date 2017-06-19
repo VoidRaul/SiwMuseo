@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:tiles="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<title>Stanza content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<h1 th:text="${stanza.nomeStanza}"></h1>
+<body>
+	<th:block th:each="item : ${opere}">
+		<td th:text="${item.titolo}">...</td>
+		<td colspan="6" th:text="${item.autore.nome}">...</td>
+	</th:block>
+	<div sec:authorize="hasAuthority('ADMIN')">
+		<form action="#" th:action="@{/admin/selezionaOpera}" method="post">
+			<input type="hidden" th:value="${idStanza}" name="idStanza"/>		
+			<button type="submit">aggiungiOpera</button>
+		</form>
+	</div>
+</body>
+</html>

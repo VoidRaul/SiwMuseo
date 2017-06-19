@@ -18,6 +18,14 @@ public class LoginController {
 		model.addAttribute("loginError", true);
 		return "login";
 	}
+	@RequestMapping("/primaPagina")
+	public String showPrima(Model model){
+		return("primaPagina");
+	}
+	@RequestMapping("/adminindex")
+	public String showAdmin(Model model){
+		return("adminindex");
+	}
 
 
 }

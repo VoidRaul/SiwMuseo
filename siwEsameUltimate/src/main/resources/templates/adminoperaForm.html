@@ -1,11 +1,11 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>New Customer</title>
+<title>New Opera</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-	<form action="#" th:action="@{/opera}" th:object="${opera}"
+	<form action="#" th:action="@{/admin/opera}" th:object="${opera}"
 		method="post">
 		<div>
 			<div>
@@ -19,9 +19,9 @@
 					th:if="${#fields.hasErrors('anno')}" th:text="#{label.number}">Error</span>
 			</div>
 			<div>
-				<select  name="idAutore">
+				<select name="idAutore">
 					<option th:each="item : ${autori}" th:value="${item.id}"
-						th:text="${item.nome}">Credit card</option>
+						th:text="${item.nome}"></option>
 				</select>
 
 			</div>

@@ -1,9 +1,8 @@
 package it.uniroma3.siwEsameUltimate.model;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
@@ -21,6 +20,7 @@ public class Users {
 	private String password;
 	private Long enabled;
 	@ManyToOne
+	@JoinColumn(name="authority")
 	private Authority authority;
 	
 //	public Long getId() {

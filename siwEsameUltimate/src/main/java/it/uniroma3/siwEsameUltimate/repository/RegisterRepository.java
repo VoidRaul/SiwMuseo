@@ -5,4 +5,5 @@ import it.uniroma3.siwEsameUltimate.model.Users;
 
 public interface RegisterRepository extends CrudRepository<Users,Long> {
 
+	
 }

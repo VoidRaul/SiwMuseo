@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta  http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>adminInserimentoOpera</title>
+</head>
+<h1>Hai inserito :</h1>
+<body>
+	<div>
+    	<p th:text="'Titolo: ' + ${opera.titolo}" />
+    </div>
+	<div>
+    	<p th:text="'Anno: ' + ${opera.anno}" />	
+    </div>
+	<div>
+    	<p th:text="'Stanza: ' + ${stanza.nomeStanza}" />	
+    	<p th:text="'Stanza: ' + ${opera.stanza.nomeStanza}" />
+    </div>
+    <a href="/adminindex.html" >Torna All Menu</a>
+</body>
+</html>

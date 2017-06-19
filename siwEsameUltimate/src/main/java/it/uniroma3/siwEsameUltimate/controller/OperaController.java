@@ -28,23 +28,31 @@ public class OperaController {
 	@Autowired
 	private AutoreService autoreservice;
 	private Iterable<Autore> autori = new ArrayList<>();
+	private Iterable<Opera> opere = new ArrayList<>();
 	
 	
 	
 	@GetMapping("/opera")
+	public String showAllOpera( Model model){
+		opere=operaservice.findAll();
+		model.addAttribute("opere",opere);
+		return "showOpera";
+		
+	}
+	@GetMapping("/admin/opera")
 	public String showForm(@ModelAttribute Opera opera, Model model, 
 					@ModelAttribute String idAutore){
 		autori = autoreservice.findAll();
 		model.addAttribute("autori", autori);
-		return "operaForm";
+		return "adminoperaForm";
 	}
-	@PostMapping("/opera")
+	@PostMapping("/admin/opera")
 	public String checkOperaInfo(@Valid @ModelAttribute Opera opera,@RequestParam String idAutore,
 			BindingResult bindingResult, Model model){
 		if (bindingResult.hasErrors()){
 			autori = autoreservice.findAll();
 			model.addAttribute("autori", autori);
-			return "operaForm";
+			return "adminoperaForm";
 		}
 		else{
 			model.addAttribute(opera);
@@ -52,6 +60,6 @@ public class OperaController {
 			opera.setAutore(autoreservice.findbyId(Long.decode(idAutore)));
 			operaservice.add(opera);
 		}
-		return "results";
+		return "adminresults";
 	}
 }

@@ -20,11 +20,7 @@ public class Stanza {
 	@OneToMany
 	private List<Opera> opereEsposte;
 	
-	public Stanza (String nomeStanza){
-		this.nomeStanza=nomeStanza;
-		this.opereEsposte=new ArrayList<Opera>();
-	}
-
+	
 	public Long getId() {
 		return id;
 	}

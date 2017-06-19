@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>New Customer</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<form action="#" th:action="@{/stanza}" method="post">
+		<button name="idStanza" th:each="item : ${stanze}" th:value="${item.id}"
+			th:text="${item.nomeStanza}" ></button>
+
+	</form> 
+		<!-- <form action="#" th:action="@{/stanza}" th:object="${idStanza}" method="post">
+		<ul>
+			<li th:each="feat : ${stanze}"><input type="checkbox"
+				th:field="${feat.nomeStanza}" th:value="${feat.id}" /></li>
+		</ul>
+		<button type="submit"></button>
+		
+		<th:block th:each="item: ${stanze}">
+		<tr>
+			<td><input type="radio" value="${item.id}" th:text="${item.nomeStanza}"/></td>
+		</tr>
+	</th:block>
+	<button type="submit" th:text="#{label.select}"></button>
+	</form>
+	 -->
+
+</body>
+</html>

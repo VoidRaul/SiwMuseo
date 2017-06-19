@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>New Customer</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<form action="#" th:action="@{/admin/aggiungiOpera}" method="post">
+		<select name="operaId">
+			<option th:each="item : ${opereNonEsposte}" th:value="${item.id}" th:text="${item.titolo}"></option>
+		</select>
+		<input type="hidden" th:value="${idStanza}" name="idStanza"/>
+		<button type="submit" th:text="#{label.aggiungi}">AGGIUNGI</button>
+	</form>
+</body>
+</html>

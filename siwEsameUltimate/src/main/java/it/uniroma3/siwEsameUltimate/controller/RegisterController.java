@@ -44,8 +44,8 @@ public class RegisterController {
 		}
 		else{
 			users.setEnabled((long) 1);
-			users.setAuthority(authorityService.findbyId((long) 2));
-			authorityService.findbyId((long)2).getUser().add(users);
+			users.setAuthority(authorityService.findbyId("USER"));
+			authorityService.findbyId("USER").getUser().add(users);
 			model.addAttribute(users);
 			registerservice.add(users);
 			
