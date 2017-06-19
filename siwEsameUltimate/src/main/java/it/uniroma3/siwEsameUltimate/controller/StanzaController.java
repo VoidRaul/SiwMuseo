@@ -29,7 +29,7 @@ public class StanzaController {
 	@Autowired
 	private OperaService operaService;
 
-	@GetMapping("/admin/stanza")
+	@GetMapping("/stanza")
 	public String showForm(Model model){
 		Long idStanza = null;
 		model.addAttribute("stanze", stanzaService.findAll());
