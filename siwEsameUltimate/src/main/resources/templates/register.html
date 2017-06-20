@@ -2,25 +2,46 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>New Customer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
     <body>
-        <form action="#" th:action="@{/register}" th:object="${users}" method="post">
-            <div>
-                <div>
-                    <span th:text="#{label.username}">Username: </span>
-                    <span><input type="text" th:field="*{username}" /></span>
-                    <span th:if="${#fields.hasErrors('username')}" th:text="#{label.mandatory}">Error</span>
-                </div>
-                <div>
-                    <span th:text="#{label.password}">Password: </span>
-                    <span><input type="password" th:field="*{password}" /></span>
-                    <span th:if="${#fields.hasErrors('password')}" th:text="#{label.mandatory}">Error</span>
-                </div>
-                <div>
-                    <span><button type="submit">Submit</button></span>
-                </div>
-            </div>
-        </form>
+    
+    
+    <div class="container">
+    <div class="row">
+    
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+				<div class="w3-card-4">
+			  <div class="w3-container w3-black">
+			    <h2>Register</h2>
+			  </div>
+			  <form class="w3-container" th:action="@{/register}" method="post" th:object="${users}">
+			  	<fieldset>
+			  	<legend>Please insert username and password</legend>
+			    <p>      	
+			    <span th:if="${#fields.hasErrors('username')}" th:text="#{label.mandatory}">Error</span>
+				
+			    <label class="w3-text-black" th:text="#{label.username}">Username: </label>
+			    <input class="w3-input w3-border w3-gray" type="text" th:field="*{username}"/></p>
+			    <p> 
+			    <span th:if="${#fields.hasErrors('password')}" th:text="#{label.mandatory}">Error</span>
+                
+			    <label class="w3-text-black" th:text="#{label.password}">Password: </label>
+			    <input class="w3-input w3-border w3-gray" type="password" th:field="*{password}"/></p>
+			    <p>
+			    <div class="form-actions">
+					<button type="submit" class="btn">Register</button>
+ 				</div></p>
+			    </fieldset>
+			  </form>
+			</div>
+	</div>
+	</div>
+	</div>
     </body>
 </html>
