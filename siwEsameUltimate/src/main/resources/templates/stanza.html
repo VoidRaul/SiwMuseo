@@ -5,6 +5,7 @@
 <head>
 <title>Stanze</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css"/>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -58,32 +59,36 @@
   </div>
 
 </nav>
+	
+	<div class="container">
+    <div class="row">
+    
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+	<div class="w3-card-4">
+	<div class="w3-container w3-black">
 	<h1 th:text="#{label.MuseumRoom}">Stanze Del museo</h1>
+	</div>
 	<form action="#" th:action="@{/stanza}" method="post">
 		<th:block th:each="item : ${stanze}">
-		<input type="radio" name="idStanza" th:value="${item.id}"
-			th:text="${item.nomeStanza}" />
+		<div class="input-group">
+      		<span class="input-group-addon">
+		<input class="btn" type="radio" name="idStanza" th:value="${item.id}" th:text="${item.nomeStanza}" />
+			</span>
+		</div>
 		</th:block>
 		<!--  th:each="item : ${stanze}" -->
-		<br/>
-		<button type="submit" th:text="#{label.select}"></button>
-
-	</form> 
-		<!-- <form action="#" th:action="@{/stanza}" th:object="${idStanza}" method="post">
-		<ul>
-			<li th:each="feat : ${stanze}"><input type="checkbox"
-				th:field="${feat.nomeStanza}" th:value="${feat.id}" /></li>
-		</ul>
-		<button type="submit"></button>
 		
-		<th:block th:each="item: ${stanze}">
-		<tr>
-			<td><input type="radio" value="${item.id}" th:text="${item.nomeStanza}"/></td>
-		</tr>
-	</th:block>
-	<button type="submit" th:text="#{label.select}"></button>
+		<div class="input-group">
+      		<span class="input-group-addon">
+				<button type="submit" th:text="#{label.select}"></button>
+			</span>
+		</div>
 	</form>
-	 -->
+	</div> 
+	</div>
+	</div>
+	</div>
 
 </body>
 </html>
