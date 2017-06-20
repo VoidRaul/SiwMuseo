@@ -1,10 +1,12 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <title>Nuovo Autore</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css"/>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
@@ -55,48 +57,129 @@
   </div>
 
 </nav>
-	<form action="#" th:action="@{/admin/autore}" th:object="${autore}"
-		method="post">
-		<div>
-			<div>
-				<span th:text="#{label.name}">Nome: </span> <span><input
-					type="text" th:field="*{nome}" /></span> <span
-					th:if="${#fields.hasErrors('nome')}" th:text="#{label.mandatory}">Error</span>
-			</div>
-			<div>
-				<span th:text="#{label.surname}">Cognome: </span> <span><input
-					type="text" th:field="*{cognome}" /></span> <span
-					th:if="${#fields.hasErrors('cognome')}"
-					th:text="#{label.mandatory}">Error</span>
-			</div>
-			<div>
-				<span th:text="#{label.nationality}">Nazionalità: </span> <span><input
-					type="text" th:field="*{nazionalita}" /></span> <span
-					th:if="${#fields.hasErrors('nazionalita')}"
-					th:text="#{label.mandatory}">Error</span>
-			</div>
-			<div>
-				<span th:text="#{label.birthYear}">Anno di nascita: </span> <span><input
-					type="text" th:field="*{dataNascita}" /></span> <span
-					th:if="${#fields.hasErrors('dataNascita')}"
-					th:text="#{label.number}">Error</span>
-			</div>
-			<div>
-				<span th:text="#{label.deathYear}">Anno di morte: </span> <span><input
-					type="text" th:field="*{dataMorte}" /></span> <span
-					th:if="${#fields.hasErrors('dataMorte')}" th:text="#{label.number}">Error</span>
-			</div>
-			<div>
-				<span th:text="#{label.description}">Biografia</span> <span><input
-					type="text" th:field="*{biography}" /></span> <span
-					th:if="${#fields.hasErrors('dataMorte')}"
-					th:text="#{label.mandatory}">Error</span>
-			</div>
 
+
+
+<!-- FORM INSERIMENTO AUTORE -->
+
+
+
+
+
+
+
+
+<div class="container">
+    <div class="row">
+    
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+				<div class="w3-card-4">
+			  <div class="w3-container w3-black">
+			    <h2>Aggiungi Artista</h2>
+			  </div>
+			  <form class="w3-container" th:action="@{/admin/autore}" th:object="${autore}" method="post">
+			  	<fieldset>
+			      
+			 <p>
 			<div>
-				<span><button type="submit">Submit</button></span>
+                    <div class="input-group">			
+			
+				<label class="input-group-addon w3-text-black" th:text="#{label.name}">Nome: </label> 
+				<span><input class="w3-input w3-border w3-gray" type="text" th:field="*{nome}" /></span> 
+				<span th:if="${#fields.hasErrors('nome')}" th:text="#{label.mandatory}">Error</span>
 			</div>
-		</div>
-	</form>
+			
+			</div>
+			  </p>  
+			  
+			    
+			    <p>
+			    
+			    <div>
+				<div class="input-group">
+				
+				<label class="input-group-addon w3-text-black" th:text="#{label.surname}">Cognome: </label> 
+				<span><input class="w3-input w3-border w3-gray" type="text" th:field="*{cognome}" /></span> 
+				<span th:if="${#fields.hasErrors('cognome')}" th:text="#{label.mandatory}">Error</span>
+				
+				
+				</div>
+			</div>
+				</p>
+			    
+			    <p>
+			    <div>
+			    
+				<div class="input-group">
+				
+				<label class="input-group-addon w3-text-black" th:text="#{label.nationality}">Nazionalità: </label> 
+				<span><input class="w3-input w3-border w3-gray" type="text" th:field="*{nazionalita}" /></span> 
+				<span th:if="${#fields.hasErrors('nazionalita')}" th:text="#{label.mandatory}">Error</span>
+				
+				</div>
+
+			</div>
+			    
+			    </p>
+			    
+			     <p>
+			    <div>
+			    
+				<div class="input-group">
+				
+				<label class="input-group-addon w3-text-black" th:text="#{label.birthYear}">Anno di nascita: </label> 
+				<span><input class="w3-input w3-border w3-gray" type="text" th:field="*{dataNascita}" /></span> 
+				<span th:if="${#fields.hasErrors('dataNascita')}" th:text="#{label.number}">Error</span>
+				
+				</div>
+
+			</div>
+			    
+			    </p>
+			    
+			     <p>
+			    <div>
+			    
+				<div class="input-group">
+			
+				<label class="input-group-addon w3-text-black" th:text="#{label.deathYear}">Anno di morte: </label> 
+				<span><input class="w3-input w3-border w3-gray" type="text" th:field="*{dataMorte}" /></span> 
+				<span th:if="${#fields.hasErrors('dataMorte')}" th:text="#{label.number}">Error</span>
+								
+				</div>
+
+			</div>
+			    
+			    </p>
+			    
+			     <p>
+			    <div>
+			    
+				<div class="input-group">
+				<!--  -->
+				<label class="input-group-addon w3-text-black" th:text="#{label.description}">Biografia: </label> 
+				<span><textarea class="w3-input w3-border w3-gray" th:field="*{biography}"  rows="5" cols="65"></textarea></span> 
+				<span th:if="${#fields.hasErrors('biography')}" th:text="#{label.mandatory}">Error</span>
+				
+				</div>
+
+			</div>
+			    
+			    </p>
+			    
+			   <p>
+			    <div class="form-actions">
+					<button type="submit" class="btn">Invia</button>
+ 				</div>
+ 				</p>
+ 				
+			    </fieldset>
+			  </form>
+			</div>
+	</div>
+	</div>
+	</div>
+
 </body>
 </html>
