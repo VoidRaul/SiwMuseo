@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css"/>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
@@ -58,30 +59,119 @@
   </div>
 
 </nav>
-	<form action="#" th:action="@{/admin/opera}" th:object="${opera}"
-		method="post">
-		<div>
+
+
+
+
+
+<div class="container">
+    <div class="row">
+    
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+				<div class="w3-card-4">
+			  <div class="w3-container w3-black">
+			    <h2>Aggiungi Opera</h2>
+			  </div>
+			  <form class="w3-container" th:action="@{/admin/opera}" th:object="${opera}" method="post">
+			  	<fieldset>
+			      
+			 <p>
 			<div>
-				<span th:text="#{label.title}">Titolo: </span> <span><input
-					type="text" th:field="*{titolo}" /></span> <span
-					th:if="${#fields.hasErrors('titolo')}" th:text="#{label.mandatory}">Error</span>
+                    <div class="input-group">
+  					<label class="input-group-addon w3-text-black" th:text="#{label.title}">Titolo: </label> 
+				
+				<span><input class="w3-input w3-border w3-gray" type="text" th:field="*{titolo}" /></span> 
+				<span th:if="${#fields.hasErrors('titolo')}" th:text="#{label.mandatory}">Error</span>
 			</div>
-			<div>
-				<span th:text="#{label.year}">Anno: </span> <span><input
-					type="text" th:field="*{anno}" /></span> <span
-					th:if="${#fields.hasErrors('anno')}" th:text="#{label.number}">Error</span>
 			</div>
-			<div>
+			  </p>  
+			  
+			    
+			    <p>
+			    
+			    <div>
+				<div class="input-group">
+				<span class="input-group-addon w3-text-black" th:text="#{label.year}">Anno: </span> 
+				<span><input class="w3-input w3-border w3-gray" type="text" th:field="*{anno}" /></span> 
+				<span th:if="${#fields.hasErrors('anno')}" th:text="#{label.number}">Error</span>
+				</div>
+			</div>
+				</p>
+			    
+			    <p>
+			    <div>
 				<select name="idAutore">
 					<option th:each="item : ${autori}" th:value="${item.id}"
 						th:text="${item.Cognome}"></option>
 				</select>
 
 			</div>
-			<div>
-				<span><button type="submit">Submit</button></span>
+			    
+			    </p>
+			    
+			   <p>
+			    <div class="form-actions">
+					<button type="submit" class="btn">Invia</button>
+ 				</div>
+ 				</p>
+ 				
+			    </fieldset>
+			  </form>
 			</div>
-		</div>
-	</form>
+	</div>
+	</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 	<div class="container"> -->
+<!--     <div class="row"> -->
+    
+<!--     <div class="col-md-4"></div> -->
+<!--     <div class="col-md-8"> -->
+<!-- 	<form action="#" th:action="@{/admin/opera}" th:object="${opera}" -->
+<!-- 		method="post"> -->
+<!-- 		<div> -->
+<!-- 			<div> -->
+<!--                     <div class="input-group"> -->
+<!--   					<span class="input-group-addon" th:text="#{label.title}">Titolo: </span>  -->
+				
+<!-- 				<span><input -->
+<!-- 					type="text" th:field="*{titolo}" /></span> <span -->
+<!-- 					th:if="${#fields.hasErrors('titolo')}" th:text="#{label.mandatory}">Error</span> -->
+<!-- 			</div> -->
+<!-- 			</div> -->
+<!-- 			<div> -->
+<!-- 				<div class="input-group"> -->
+<!-- 				<span class="input-group-addon" th:text="#{label.year}">Anno: </span> <span><input -->
+<!-- 					type="text" th:field="*{anno}" /></span> <span -->
+<!-- 					th:if="${#fields.hasErrors('anno')}" th:text="#{label.number}">Error</span> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 			<div> -->
+<!-- 				<select name="idAutore"> -->
+<!-- 					<option th:each="item : ${autori}" th:value="${item.id}" -->
+<!-- 						th:text="${item.Cognome}"></option> -->
+<!-- 				</select> -->
+
+<!-- 			</div> -->
+<!-- 			<div> -->
+<!-- 				<span><button type="submit">Submit</button></span> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 	</form> -->
+<!-- 	</div> -->
+<!-- 	</div> -->
+<!-- 	</div> -->
 </body>
 </html>

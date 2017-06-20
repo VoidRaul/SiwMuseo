@@ -31,7 +31,7 @@ public class AutoreValidator implements Validator{
 			return;
 		for(Autore a : autori){
 			if(a.getNome().equals(autore.getNome()) && a.getCognome().equals(autore.getCognome()) && a.getNazionalita().equals(autore.getNazionalita())){
-				arg1.rejectValue("login", "NonUniq.user");
+				arg1.rejectValue("autor", "NonUniq.user");
 			}
 		}
 
