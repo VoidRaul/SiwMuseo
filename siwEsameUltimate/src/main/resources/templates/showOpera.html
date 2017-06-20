@@ -59,33 +59,86 @@
   </div>
 
 </nav>
+
+
+	
+<div class="container">
+<div class="row">
+<div class="col-md-3"></div>
+<div class="col-md-6">
 	<h1 th:text="#{label.OpereEsposte}">Opere Esposte Nel Museo</h1>
+	</div>
+	</div>
+	
+	<div class="row">
+		
+		
+		<div th:each="item : ${opereEsposte}">
+		<div class="col-md-4">
+		<div class="col-md-2"></div>
+			<table>
+				<tr>
+					<td th:text="${item.titolo}">Item description here...</td>
+				</tr>
+				<tr>
+					<td><img th:src="'/images/'+${item.titolo}+'.jpg'" th:alt="'Quadro ' + ${item.titolo}" class="img-responsive img-rounded"></img></td>
+				</tr>
+			</table>
+		</div>
+		</div>
+	</div>
+</div>
 
-	<table>
-		<tr>
-			<th th:text="#{label.title}" />
-			<th th:text="#{label.image}" />
-		</tr>
-		<tr th:each="item : ${opereEsposte}">
-			<td th:text="${item.titolo}">Item description here...</td>
-			<td><img th:src="'/images/'+${item.titolo}+'.jpg'"
-				th:alt="'Quadro ' + ${item.titolo}"></img></td>
-		</tr>
-	</table>
 
+	
+
+
+	<div class="container">
+	
+	<div class="row">
+<div class="col-md-3"></div>
+<div class="col-md-6">
 	<h1 th:text="#{label.OpereNonEsposte}">Coming Soon</h1>
+	</div>
+	</div>
+	
+	<div class="row">
+		
+		
+		<div th:each="item : ${opereNonEsposte}">
+		<div class="col-md-4">
+		<div class="col-md-2"></div>
+			<table>
+				<tr>
+					<td th:text="${item.titolo}">Item description here...</td>
+				</tr>
+				<tr>
+					<td><img th:src="'/images/'+${item.titolo}+'.jpg'" th:alt="'Quadro ' + ${item.titolo}" class="img-responsive img-rounded"></img></td>
+				</tr>
+			</table>
+		</div>
+		</div>
+	</div>
+</div>
 
-	<table>
-		<tr>
-			<th th:text="#{label.title}" />
-			<th th:text="#{label.image}" />
-		</tr>
-		<tr th:each="items : ${opereNonEsposte}">
-			<td th:text="${items.titolo}">Item description here...</td>
-			<td><img th:src="'/images/'+${items.titolo}+'.jpg'"
-				th:alt="'Quadro ' + ${items.titolo}"></img></td>
-		</tr>
-	</table>
+
+
+
+
+<!-- <table> -->
+<!-- 		<tr> -->
+<!-- 			<th th:text="#{label.title}" /> -->
+<!-- 			<th th:text="#{label.image}" /> -->
+<!-- 		</tr> -->
+		
+<!-- 		<tr th:each="item : ${opereEsposte}"> -->
+<!-- 		<div class="col-md-2"> -->
+<!-- 			<td th:text="${item.titolo}">Item description here...</td> -->
+<!-- 			<td><img th:src="'/images/'+${item.titolo}+'.jpg'" -->
+<!-- 				th:alt="'Quadro ' + ${item.titolo}" class="img-responsive img-rounded"></img></td> -->
+<!-- 		</div> -->
+<!-- 		</tr> -->
+<!-- 	</table> -->
 
 
 
