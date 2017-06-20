@@ -3,7 +3,6 @@
 	xmlns:tiles="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
-<head>
 <title>New Opera</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
@@ -59,7 +58,6 @@
   </div>
 
 </nav>
-<body>
 	<form action="#" th:action="@{/admin/opera}" th:object="${opera}"
 		method="post">
 		<div>
@@ -76,7 +74,7 @@
 			<div>
 				<select name="idAutore">
 					<option th:each="item : ${autori}" th:value="${item.id}"
-						th:text="${item.nome}"></option>
+						th:text="${item.Cognome}"></option>
 				</select>
 
 			</div>
