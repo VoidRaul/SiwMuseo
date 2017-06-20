@@ -22,10 +22,5 @@ public class LoginController {
 	public String showPrima(Model model){
 		return("primaPagina");
 	}
-	@RequestMapping("/adminindex")
-	public String showAdmin(Model model){
-		return("adminindex");
-	}
-
 
 }
