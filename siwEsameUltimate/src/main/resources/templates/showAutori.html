@@ -1,10 +1,63 @@
 <!DOCTYPE html>
-<html  xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:tiles="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
+<title>AutoriInGalleria</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css"/>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>ShowAutori</title>
 </head>
 <body>
+
+<script src="//code.jquery.com/jquery.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  
+
+  
+  <nav class="navbar navbar-inverse" role="navigation">
+
+  <!-- Logo e pulsante per barra ridimensionata -->
+  <div class="col-md-1">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Espandi barra di navigazione</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/primaPagina">Home</a>
+  </div>
+  </div>
+
+  <!-- Elementi della barra -->
+  <div class="collapse navbar-collapse navbar-ex1-collapse" >
+    <ul class="nav navbar-nav">
+      <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" th:text="#{label.navigate}">Naviga <span class="caret"></span></a>
+          <ul class="dropdown-menu ">
+            <li><a href="/opera" th:text="#{label.viewOpere}">Visualizza opere </a></li>
+            <li><a href="/autore" th:text="#{label.viewAutore}"> Visualizza autore </a></li>
+            <li><a href="/stanza" th:text="#{label.ViewStanza}">Visualizza stanze</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown" sec:authorize="hasAuthority('ADMIN')">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" th:text="#{label.manage}">Gestisci <span class="caret"></span></a>
+          <ul class="dropdown-menu ">
+            <li><a href="/admin/opera" th:text="#{label.AddOpera}"> OPERA </a></li>
+            <li><a href="/admin/autore" th:text="#{label.AddAutore}"> AUTORE </a></li>
+            <li><a href="/stanza" th:text="#{label.ViewStanza}">STANZA</a></li>
+            <li><a href="/uploadFile" th:text="#{label.uploadImg}">UPLOAD IMMAGINE</a></li>
+          </ul>
+        </li>
+      <li><a href="/logout" th:text="#{label.logOut}">Log Out</a></li>
+    </ul>
+  </div>
+
+</nav>
 	<h1 th:text="#{label.viewAutori}"></h1>
 	<th:block th:each="item : ${autori}">
 	<ul>

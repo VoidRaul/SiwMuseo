@@ -43,11 +43,13 @@ public class FileUploadController {
 				String rootPath = System.getProperty("catalina.home");
 				File dir = new File(rootPath + File.separator + "tmpFiles");
 				if (!dir.exists())
-					dir.mkdirs();
+				  dir.mkdirs();
 
 				// Create the file on server
 				File serverFile = new File(dir.getAbsolutePath()
 						+ File.separator + name);
+//				String rootPath = "/home/raul/Documents/siwEsameUltimate/siwEsameUltimate/src/main/resources/img/";
+//				File serverFile = new File(rootPath + name);
 				BufferedOutputStream stream = new BufferedOutputStream(
 						new FileOutputStream(serverFile));
 				stream.write(bytes);

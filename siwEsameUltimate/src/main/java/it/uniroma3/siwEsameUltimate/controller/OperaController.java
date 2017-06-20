@@ -1,5 +1,6 @@
 package it.uniroma3.siwEsameUltimate.controller;
 
+import java.io.File;
 import java.util.ArrayList;
 import javax.validation.Valid;
 
@@ -35,10 +36,16 @@ public class OperaController {
 	
 	@GetMapping("/opera")
 	public String showAllOpera( Model model){
+		String rootPath = System.getProperty("catalina.home");
+		String dir = rootPath+"/tmpFiles/";
+		
+	
+		// Create the file on serverString rootPath = "/home/raul/Documents/siwEsameUltimate/siwEsameUltimate/src/main/resources/img/";
 		Iterable<Opera> opereEsposte = new ArrayList<>();
 		Iterable<Opera> opereNonEsposte = new ArrayList<>();		
 		opereEsposte=galServ.getOpereEsposte();
 		opereNonEsposte=galServ.getOpereNonEsposte();
+		model.addAttribute("serverFile",dir);
 		model.addAttribute("opereEsposte",opereEsposte);
 		model.addAttribute("opereNonEsposte",opereNonEsposte);
 		return "showOpera";
