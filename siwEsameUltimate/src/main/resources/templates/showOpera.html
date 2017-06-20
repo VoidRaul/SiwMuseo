@@ -68,9 +68,8 @@
 		</tr>
 		<tr th:each="item : ${opereEsposte}">
 			<td th:text="${item.titolo}">Item description here...</td>
-			<td><img src="https://upload.wikimedia.org/wikipedia/en/7/74/PicassoGuernica.jpg"
+			<td><img th:src="'/images/'+${item.titolo}+'.jpg'"
 				th:alt="'Quadro ' + ${item.titolo}"></img></td>
-			<td th:text="${serverFile}+${item.titolo}"></td>
 		</tr>
 	</table>
 
@@ -83,7 +82,7 @@
 		</tr>
 		<tr th:each="items : ${opereNonEsposte}">
 			<td th:text="${items.titolo}">Item description here...</td>
-			<td><img src="'/tmp/tomcat.771882198501843748.8080/tmpFiles/'+${items.titolo}+'.*'"
+			<td><img th:src="'/images/'+${items.titolo}+'.jpg'"
 				th:alt="'Quadro ' + ${items.titolo}"></img></td>
 		</tr>
 	</table>

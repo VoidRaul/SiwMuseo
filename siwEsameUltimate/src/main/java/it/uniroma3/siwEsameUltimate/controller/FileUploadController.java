@@ -3,10 +3,13 @@ package it.uniroma3.siwEsameUltimate.controller;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.net.URL;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,22 +36,25 @@ public class FileUploadController {
 	@RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
 	public @ResponseBody
 	String uploadFileHandler(@RequestParam("name") String name,
-			@RequestParam("file") MultipartFile file) {
+			@RequestParam("file") MultipartFile file, Model model) {
 
+		String currentDir = null;
 		if (!file.isEmpty()) {
 			try {
 				byte[] bytes = file.getBytes();
-
+				
+				currentDir= System.getProperty("user.dir");
 				// Creating the directory to store file
-				String rootPath = System.getProperty("catalina.home");
-				File dir = new File(rootPath + File.separator + "tmpFiles");
+//				String rootPath = System.getProperty("catalina.home");
+//				File dir = new File(rootPath + File.separator + "tmpFiles");
+				File dir = new File(currentDir);
 			//	String path = javax.naming.Context.PROVIDER_URL;
 				if (!dir.exists())
 				  dir.mkdirs();
 
 				// Create the file on server
 				File serverFile = new File(dir.getAbsolutePath()
-						+ File.separator + name);
+						+ File.separator + "/src/main/resources/static/images/"+name);
 //				String rootPath = "/home/raul/Documents/siwEsameUltimate/siwEsameUltimate/src/main/resources/img/";
 //				File serverFile = new File(rootPath + name);
 				BufferedOutputStream stream = new BufferedOutputStream(
@@ -61,7 +67,7 @@ public class FileUploadController {
 
 				return "You successfully uploaded file=" + name;
 			} catch (Exception e) {
-				return "You failed to upload " + name + " => " + e.getMessage();
+				return "You failed to upload " + name + " => " + e.getMessage() + currentDir;
 			}
 		} else {
 			return "You failed to upload " + name

@@ -2,6 +2,8 @@ package it.uniroma3.siwEsameUltimate.controller;
 
 import java.io.File;
 import java.util.ArrayList;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +37,7 @@ public class OperaController {
 	
 	
 	@GetMapping("/opera")
-	public String showAllOpera( Model model){
+	public String showAllOpera( Model model,HttpServletRequest request){
 		String rootPath = System.getProperty("catalina.home");
 		String dir = rootPath+"/tmpFiles/";
 		

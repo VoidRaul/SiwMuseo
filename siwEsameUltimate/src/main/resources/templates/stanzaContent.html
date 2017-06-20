@@ -70,7 +70,7 @@
 			<td th:text="${item.titolo}">Item description here...</td>
 			<td th:text="${item.autore.nome}"></td>
 			<td th:text="${item.autore.cognome}"></td>
-			<td><img th:src="'/tmp/tomcat.771882198501843748.8080/tmpFiles/'+${item.titolo}"
+			<td><img th:src="'/images/'+${item.titolo}+'.jpg'"
 				th:alt="'Quadro ' + ${item.titolo}"></img></td>
 		</tr>
 	</table>
