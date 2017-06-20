@@ -60,34 +60,84 @@
   </div>
 
 </nav>
+
+
+
+<div class="container">
+<div class="row">
+<div class="col-md-5"></div>
+<div class="col-md-2">
 <h1 th:text="${stanza.nomeStanza}"></h1>
+</div>
+</div>
+
+<div class="row">
+<div th:each="item : ${opere}">
+		<div class="col-md-4">
+		<div class="col-md-2"></div>
 	<table>
 		<tr>
-			<th th:text="#{label.title}" />
-			<th th:text="#{label.nome} + #{label.autore}" />
-			<th th:text="#{label.cognome} + #{label.autore}" />
-			<th sec:authorize="hasAuthority('ADMIN')" th:text="#{label.image}" />
-			<th/>
+			<td class="nomeOpera" th:text="${item.titolo}">Item description here...</td>
 		</tr>
-		<tr th:each="item : ${opere}">
-			<td th:text="${item.titolo}">Item description here...</td>
-			<td th:text="${item.autore.nome}"></td>
-			<td th:text="${item.autore.cognome}"></td>
-			<td><img th:src="'/images/'+${item.titolo}+'.jpg'"
-				th:alt="'Quadro ' + ${item.titolo}"></img></td>
+		<tr>
+		
+			<td><img th:src="'/images/'+${item.titolo}+'.jpg'" th:alt="'Quadro ' + ${item.titolo}" class="img-responsive img-rounded"></img></td>
+			
+		</tr>
+		<tr>
 			<td sec:authorize="hasAuthority('ADMIN')">
 			<form th:action="@{/admin/rimuoviOperaStanza}" method="post">
 				<input type="hidden" th:value="${item.id}" name="idOpera"/>
-				<button type="submit" th:text="#{label.removeFromRoom}"></button>
+				<button class="btn" type="submit" th:text="#{label.removeFromRoom}"></button>
 			</form>
 			</td>
 		</tr>
 	</table>
+	</div></div>
+	</div>
+	
+	<div class="row">
+	<br/>
+	<br/>
+	<br/>
+<div class="col-md-5"></div>
+<div class="col-md-2">
+	
 	<div sec:authorize="hasAuthority('ADMIN')">
 		<form action="#" th:action="@{/admin/selezionaOpera}" method="post">
 			<input type="hidden" th:value="${idStanza}" name="idStanza"/>		
-			<button type="submit">aggiungiOpera</button>
+			<button type="submit" class="btn">aggiungiOpera</button>
 		</form>
 	</div>
+	</div>
+	</div>
+	</div>
+	
+	
+<!-- 	<table> -->
+<!-- 		<tr> -->
+<!-- 			<th th:text="#{label.title}" /> -->
+<!-- 			<th th:text="#{label.nome} + #{label.autore}" /> -->
+<!-- 			<th th:text="#{label.cognome} + #{label.autore}" /> -->
+<!-- 			<th sec:authorize="hasAuthority('ADMIN')" th:text="#{label.image}" /> -->
+<!-- 			<th/> -->
+<!-- 		</tr> -->
+<!-- 		<tr th:each="item : ${opere}"> -->
+<!-- 			<td th:text="${item.titolo}">Item description here...</td> -->
+<!-- 			<td th:text="${item.autore.nome}"></td> -->
+<!-- 			<td th:text="${item.autore.cognome}"></td> -->
+<!-- 			<td><img th:src="'/images/'+${item.titolo}+'.jpg'" -->
+<!-- 				th:alt="'Quadro ' + ${item.titolo}"></img></td> -->
+<!-- 			<td sec:authorize="hasAuthority('ADMIN')"> -->
+<!-- 			<form th:action="@{/admin/rimuoviOperaStanza}" method="post"> -->
+<!-- 				<input type="hidden" th:value="${item.id}" name="idOpera"/> -->
+<!-- 				<button type="submit" th:text="#{label.removeFromRoom}"></button> -->
+<!-- 			</form> -->
+<!-- 			</td> -->
+<!-- 		</tr> -->
+<!-- 	</table> -->
+	
+	
+	
 </body>
 </html>
