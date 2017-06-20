@@ -5,8 +5,10 @@
 <head>
 <title>AutoriInGalleria</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css"/>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css"/>
+	<link rel="stylesheet" href="/css/StyleSheet.css"/>
+	<link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet"/>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
@@ -63,7 +65,7 @@
 	<ul>
 		<li th:text="#{label.nome} + ${item.nome}"></li>
 		<li th:text="#{label.cognome} + ${item.cognome}"></li>
-		<li th:text="#{label.description} + ${item.biography}"></li>
+		<li class="bio" th:text="#{label.description} + ${item.biography}"></li>
 	</ul>
 	</th:block>
 </body>

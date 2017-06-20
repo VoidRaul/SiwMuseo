@@ -27,13 +27,13 @@ public class FileUploadController {
 	 * 
 	 */
 
-	@RequestMapping(value = "/uploadFile", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin/uploadFile", method = RequestMethod.GET)
 	public String upload(){
-		return "upload";
+		return "adminupload";
 	}
 	
 	
-	@RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
+	@RequestMapping(value = "/admin/uploadFile", method = RequestMethod.POST)
 	public @ResponseBody
 	String uploadFileHandler(@RequestParam("name") String name,
 			@RequestParam("file") MultipartFile file, Model model) {

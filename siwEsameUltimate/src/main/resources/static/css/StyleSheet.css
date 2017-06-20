@@ -1,0 +1,46 @@
+@CHARSET "UTF-8";
+<style>
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+</style>
+body{font-size: 35px;
+}
+h1{
+	font-family: 'Amatic SC', cursive;
+	font-size: 45px;
+}
+h2{
+	font-family: 'Amatic SC', cursive;
+	font-size: 35px;
+}
+h3{
+	font-family: 'Amatic SC', cursive;
+	font-size: 25px;
+}
+
+label{
+	font-family: 'Amatic SC', cursive;
+}
+li{
+	font-family: 'Amatic SC', cursive;
+	font-size: 35px;
+}
+.bio{
+	font-family: 'Amatic SC', cursive;
+	font-size: 25px;
+	
+}
+ul{
+	font-family: 'Amatic SC', cursive;
+	font-size: 35px;
+}
+a{
+	font-family: 'Amatic SC', cursive;
+	font-size: 35px;
+}
+.navbar-heade{
+		font-size: 35px;
+}
+jumbotron{
+	
+	font-family: 'Amatic SC', cursive;
+}
