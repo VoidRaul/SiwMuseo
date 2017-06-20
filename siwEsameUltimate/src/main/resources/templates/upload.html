@@ -5,6 +5,7 @@
 <head>
 <title>Upload File Request Page</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css"/>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -58,11 +59,45 @@
   </div>
 
 </nav>
-	<form method="POST" action="uploadFile" enctype="multipart/form-data">
-		File to upload: <input type="file" name="file"/> 
-		Name: <input type="text" name="name"/> 
-		<input type="submit" value="Upload"/>
-		Press here to upload the file!
-	</form>
+
+<div class="container">
+    <div class="row">
+    
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+		<div class="w3-card-4">
+		<div class="w3-container w3-black">	
+			<h2>File to upload:</h2>
+		</div>
+			<form method="POST" action="uploadFile" enctype="multipart/form-data">
+				 
+				<input class="w3-input" type="file" name="file"/> 
+				<div class="input-group">
+				<span class="input-group-addon">Name:</span>
+				<span><input class="w3-input w3-border " type="text" name="name"/></span>
+				</div>
+				<div class="form-actions"> 
+				<input class="btn" type="submit" value="Upload"/>
+				</div>
+			</form>
+		</div>
+	</div>
+	</div>
+	</div>
+	
+	
+<!-- 	<form method="POST" action="uploadFile" enctype="multipart/form-data"> -->
+				 
+<!-- 				<input class="w3-input w3-border w3-gray" type="file" name="file"/>  -->
+<!-- 				<label class="w3-text-black" for="username">Name: </label> -->
+<!-- 				<input class="w3-input w3-border w3-gray" type="text" name="name"/> -->
+<!-- 				<div class="form-actions">  -->
+<!-- 				<input class="w3-input w3-border w3-gray" type="submit" value="Upload"/> -->
+<!-- 				</div> -->
+<!-- 				Press here to upload the file! -->
+<!-- 			</form> -->
+	
+	
+	
 </body>
 </html>
