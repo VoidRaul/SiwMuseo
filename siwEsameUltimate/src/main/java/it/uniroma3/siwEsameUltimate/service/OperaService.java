@@ -39,5 +39,10 @@ public class OperaService {
 		this.findbyId(operaId).setStanza(stanza);
 		
 	}
+	@Transactional
+	public void rimuoviDallaStanza(Long idOpera) {
+		galserv.findOperaById(idOpera).setStanza(null);
+	
+	}
 
 }

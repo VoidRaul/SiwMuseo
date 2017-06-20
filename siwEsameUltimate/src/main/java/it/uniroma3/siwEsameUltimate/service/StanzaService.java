@@ -1,5 +1,7 @@
 package it.uniroma3.siwEsameUltimate.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,6 +29,12 @@ public class StanzaService {
 	@Transactional
 	public void addOpera(Long id,Opera opera){
 		this.stanzaRepo.findOne(id).addOpera(opera);
+	}
+	@Transactional
+	public void rimuoviOpera(Long idStanza, Opera Opera) {
+		// TODO Auto-generated method stub
+		List<Opera>opere=this.findbyId(idStanza).getOpereEsposte();
+		opere.remove(opere.indexOf(Opera));
 	}
 
 	

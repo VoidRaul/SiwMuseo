@@ -57,6 +57,7 @@ public class StanzaController {
 		
 		
 	}
+	
 	@PostMapping("/admin/aggiungiOpera")
 	public String addOpera(Model model,@RequestParam Long idStanza,@RequestParam Long operaId, HttpServletRequest request){
 		Opera opera= galleriaService.findOperaById(operaId);
@@ -68,4 +69,18 @@ public class StanzaController {
 		
 		return "adminInserimentoOpera";
 	}
+	@PostMapping("/admin/rimuoviOperaStanza")
+	public String rimuoviOperaStanza(Model model,@RequestParam Long idOpera){
+		Opera opera= galleriaService.findOperaById(idOpera);
+		Long idStanza=opera.getStanza().getId();
+		stanzaService.rimuoviOpera(idStanza,opera);
+		operaService.rimuoviDallaStanza(idOpera);
+		Stanza stanzaRimozione=galleriaService.findStanzaById(idStanza);
+		model.addAttribute("stanzaRimozione",stanzaRimozione);
+		model.addAttribute("operaRimossa", opera);
+		return "adminoperaRimossaStanza";
+	
+	}
+	
+	
 }

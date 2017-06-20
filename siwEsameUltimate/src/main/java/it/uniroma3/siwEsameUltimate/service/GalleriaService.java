@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import it.uniroma3.siwEsameUltimate.model.Autore;
 import it.uniroma3.siwEsameUltimate.model.Opera;
+import it.uniroma3.siwEsameUltimate.model.Stanza;
 import it.uniroma3.siwEsameUltimate.repository.GalleriaRepository;
 
 @Service
@@ -28,6 +29,16 @@ public class GalleriaService {
 				return a;
 		}
 		return null;
+	}
+	public Stanza findStanzaById(Long id){
+		for(Stanza a : this.getStanze()){
+			if (a.getId()==id)
+				return a;
+		}
+		return null;
+	}
+	private Iterable<Stanza> getStanze() {
+		return gallrepo.findOne((long)1).getStanzaGalleria();
 	}
 	public Iterable<Opera> getOpere(){
 	return gallrepo.findOne((long)1).getOpereGalleria();
